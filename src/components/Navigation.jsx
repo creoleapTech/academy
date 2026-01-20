@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Link } from "@tanstack/react-router"
 import { Menu, X, ChevronDown } from "lucide-react"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const closeTimeoutRef = useRef(null)
 
   const mainLinks = [
     { label: "Home", to: "/" },
@@ -19,6 +20,20 @@ export default function Navigation() {
     { label: "Robotics & AI", to: "/services/robotics" },
     { label: "Medical Admissions", to: "/services/medical" },
   ]
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    setIsServicesOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false)
+    }, 150)
+  }
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
@@ -39,8 +54,8 @@ export default function Navigation() {
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() => link.isDropdown && setIsServicesOpen(true)}
-                onMouseLeave={() => link.isDropdown && setIsServicesOpen(false)}
+                onMouseEnter={() => link.isDropdown && handleMouseEnter()}
+                onMouseLeave={() => link.isDropdown && handleMouseLeave()}
               >
                 <Link
                   to={link.to}
@@ -62,7 +77,7 @@ export default function Navigation() {
 
                 {/* Services Dropdown */}
                 {link.isDropdown && isServicesOpen && (
-                  <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50 animate-in fade-in slide-in-from-top-5">
+                  <div className="absolute left-0 top-full mt-1 w-64 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50 animate-in fade-in slide-in-from-top-5">
                     {serviceItems.map((item) => (
                       <Link
                         key={item.to}

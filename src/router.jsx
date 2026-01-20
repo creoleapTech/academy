@@ -1,3 +1,4 @@
+// router.jsx
 import { createRouter, RootRoute, Route } from "@tanstack/react-router"
 import RootLayout from "./routes/__root"
 import HomePage from "./routes/index"
@@ -56,7 +57,16 @@ const routeTree = rootRoute.addChildren([
   contactRoute,
 ])
 
-export const router = createRouter({ routeTree })
+export const router = createRouter({ 
+  routeTree,
+  // Add scroll restoration behavior
+  defaultPreload: 'intent',
+})
+
+// Add scroll to top on navigation
+router.subscribe('onBeforeLoad', () => {
+  window.scrollTo(0, 0)
+})
 
 // TypeScript declaration
 // declare module "@tanstack/react-router" {

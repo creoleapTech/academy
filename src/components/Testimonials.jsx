@@ -1,5 +1,6 @@
 "use client"
 
+import { Link } from "@tanstack/react-router"
 import { Star, Quote, ChevronLeft, ChevronRight, GraduationCap, BookOpen } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -94,22 +95,22 @@ export default function Testimonials() {
 
               <div className="grid grid-cols-2 gap-6 ">
                 <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100">
-                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 mb-2">95%</div>
+                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 mb-2">100%</div>
                   <div className="text-sm font-semibold text-gray-700">Student Engagement</div>
                 </div>
 
                 <div className="text-center p-6 bg-gradient-to-br from-emerald-50 to-white rounded-2xl border border-emerald-100">
-                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 mb-2">4.9/5</div>
+                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 mb-2">4.8/5</div>
                   <div className="text-sm font-semibold text-gray-700">Average Rating</div>
                 </div>
 
                 <div className="text-center p-6 bg-gradient-to-br from-violet-50 to-white rounded-2xl border border-violet-100">
-                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-500 mb-2">500+</div>
+                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-500 mb-2">10+</div>
                   <div className="text-sm font-semibold text-gray-700">Schools Partnered</div>
                 </div>
 
                 <div className="text-center p-6 bg-gradient-to-br from-amber-50 to-white rounded-2xl border border-amber-100">
-                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500 mb-2">40%</div>
+                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500 mb-2">80%</div>
                   <div className="text-sm font-semibold text-gray-700">Learning Improvement</div>
                 </div>
               </div>
@@ -246,9 +247,12 @@ export default function Testimonials() {
               <p className="text-gray-600 md:mt-2">Join thousands of schools already enhancing their learning experience</p>
             </div>
             <div className="flex gap-4">
+              <Link to='/contact'>
+            
               <button className="px-8 py-3 bg-gradient-to-r from-primary  to-accent text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Book a Demo
               </button>
+                </Link>
               {/* <button className="px-8 py-3 bg-white text-gray-800 font-semibold rounded-2xl border border-gray-200 hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md">
                 View Case Studies
               </button> */}

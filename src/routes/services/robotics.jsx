@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import ParallaxSection from "../../components/ParallaxSection"
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
-
+import { Link } from "@tanstack/react-router"
 export default function RoboticsPage() {
   const [activeLevel, setActiveLevel] = useState(0)
 
@@ -170,8 +170,8 @@ export default function RoboticsPage() {
             >
               <div className="relative z-10 w-full aspect-square max-w-lg mx-auto">
                 <DotLottieReact
-                  className="lg:w-[150%] scale-150 md:scale-100 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-1/2 lg:translate-x-1/2"
-                  src="https://lottie.host/embed/524c1cf6-24ad-46de-b126-c58b6c35e689/LWdudmcogB.lottie"
+                  className="scale-[300%] !w-full lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-1/2 lg:translate-x-1/2"
+                  src="https://lottie.host/524c1cf6-24ad-46de-b126-c58b6c35e689/LWdudmcogB.lottie"
                   loop
                   autoplay
                 />
@@ -180,7 +180,7 @@ export default function RoboticsPage() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 right-0 glass-panel p-4 rounded-2xl shadow-xl flex items-center gap-3"
+                className="absolute z-20 top-10 right-0 glass-panel p-4 rounded-2xl shadow-xl flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
                   <Cpu className="text-blue-600" />
@@ -378,22 +378,22 @@ export default function RoboticsPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                brand: "LEGO Education",
-                lines: ["Spike Prime", "Mindstorms EV3", "BricQ Motion"],
+                brand: "STEM Education",
+                lines: ["Core concepts", "Gear mechanism", "Block Programing"],
                 description: "The gold standard for playful, creative learning and foundational engineering concepts.",
-                image: "https://images.unsplash.com/photo-1585338002631-031e84992569?q=80&w=2070&auto=format&fit=crop"
+                image: "/assets/images/lego.jpg"
               },
               {
-                brand: "VEX Robotics",
-                lines: ["V5 Series", "IQ Generation", "EXP Kits"],
+                brand: "AI Integrated Robotics",
+                lines: ["Motor integrations", "automations", "Deep Learning Concepts"],
                 description: "Industry-aligned metal construction systems for serious competitive engineering and design.",
-                image: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?q=80&w=2070&auto=format&fit=crop"
+                image: "/assets/images/robotics.avif"
               },
               {
-                brand: "Open Source / AI",
-                lines: ["Arduino Uno/Mega", "Raspberry Pi 4", "Jetson Nano"],
-                description: "Deep-dive into professional programming, electronics, and Edge AI integration for seniors.",
-                image: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2070&auto=format&fit=crop"
+                brand: "AI Integrated Electronics",
+                lines: ["IoT", "Embeded System", "OpenCV"],
+                description: "Deep-dive into professional programming, electronics, and Edge AI integration for sensors.",
+                image: "/assets/images/electronics.webp"
               }
             ].map((kit, i) => (
               <motion.div
@@ -475,7 +475,7 @@ export default function RoboticsPage() {
             <div className="relative">
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
+                  src="/assets/images/robotics_lab2.png"
                   alt="Modern Lab"
                   className="w-full aspect-[4/3] object-cover"
                 />
@@ -574,7 +574,7 @@ export default function RoboticsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="1">
+      <section className="mb-20 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 rounded-[3rem] p-8 md:p-10 text-center relative overflow-hidden group">
             <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -594,10 +594,12 @@ export default function RoboticsPage() {
                 Join the revolution in STEM education. Let's discuss how we can bring a world-class robotics lab to your institution.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button className="px-10 py-5 bg-white text-blue-700 font-black rounded-2xl hover:bg-blue-50 transition-colors shadow-2xl flex items-center justify-center gap-3">
+                <Link to='/contact'>  
+                <button  className="px-10 py-5 bg-white text-blue-700 font-black rounded-2xl hover:bg-blue-50 transition-colors shadow-2xl flex items-center justify-center gap-3">
                   <Target className="w-5 h-5" />
-                  Request Demo Lab
+                Request Demo Lab
                 </button>
+                </Link>
                 <button className="px-10 py-5 bg-blue-500/20 backdrop-blur-md border border-white/30 text-white font-black rounded-2xl hover:bg-white/10 transition-colors flex items-center justify-center gap-3">
                   <Users className="w-5 h-5" />
                   Talk to an Expert
